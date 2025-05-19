@@ -17,17 +17,20 @@ https://skk.devsecoops.xyz
 
 ---
 
+
+---
+
 ## 실행 방법
 
-### 1. 도커(Docker)로 전체 서비스 실행
+### 1. Docker로 전체 서비스 실행
 
 ```bash
 cd app
 docker-compose up --build
 ```
 
-- `streamlit`(메인 UI): http://localhost:8501
-- `api`(FastAPI): http://localhost:8000
+- Streamlit UI: [http://localhost:8501](http://localhost:8501)
+- FastAPI API: [http://localhost:8000](http://localhost:8000)
 
 ### 2. 개별 실행 (로컬)
 
@@ -52,8 +55,10 @@ streamlit run main.py
 ## 환경/의존성
 
 - Python 3.10 이상 권장
-- 주요 패키지: streamlit, fastapi, torch, torchvision, pillow, selenium, beautifulsoup4, pandas, webdriver-manager 등
-- 자세한 버전은 각 requirements.txt 참고
+- 주요 패키지:  
+  `streamlit`, `fastapi`, `torch`, `torchvision`, `pillow`,  
+  `selenium`, `beautifulsoup4`, `pandas`, `webdriver-manager` 등  
+- 상세 버전은 각 requirements.txt 참고
 
 ---
 
@@ -61,12 +66,10 @@ streamlit run main.py
 
 - `foreign_company_classifier_v2.h5` : 외국계 기업 분류 모델
 - `best_resnet18.pt` : 이미지 분류 모델 (api/image 폴더 등 위치)
-- `data.csv` : 식약처 인증 제품 데이터 (main.py와 같은 폴더)
 
 ---
 
-## 참고/기타
+## 문의
 
-- Amazon Linux 등 서버 환경에서는 Chrome/Chromedriver 설치 필요 (README 내 설치법 참고)
-- Streamlit, FastAPI, Docker 등 개별 실행도 가능
-- 문의: [jigreg@g.skku.edu 또는 깃허브 이슈]
+- 이메일: jigreg@g.skku.edu
+- 또는 깃허브 이슈 등록
