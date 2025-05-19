@@ -2,14 +2,14 @@ version: "3.8"
 
 services:
   api:
-    image: jigreg/skk:apiv1
+    image: jigreg/skk:apiv8
     container_name: api-server
     ports:
       - "8000:8000"
     restart: unless-stopped
 
   streamlit:
-    image: jigreg/skk:streamlitv1
+    image: jigreg/skk:mainv4
     container_name: streamlit-app
     ports:
       - "8501:8501"
