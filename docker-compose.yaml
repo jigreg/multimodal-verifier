@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  api:
+    image: jigreg/skk:apiv1
+    container_name: api-server
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  streamlit:
+    image: jigreg/skk:streamlitv1
+    container_name: streamlit-app
+    ports:
+      - "8501:8501"
+    restart: unless-stopped

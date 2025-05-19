@@ -1,0 +1,11 @@
+fastapi==0.110.2
+uvicorn==0.29.0
+torch==2.2.2
+torchvision==0.17.2
+Pillow==10.3.0
+pydantic==2.11.4
+tensorflow==2.19.0
+tensorflow-hub==0.16.1
+tensorflow-text==2.19.0
+numpy==1.26.4
+python-multipart==0.0.9
