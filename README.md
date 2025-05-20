@@ -8,13 +8,20 @@
 
 ---
 
+## Architecture
+
+![서비스 아키텍처](etc/architecture.png)
+<sub>서비스 전체 구조 다이어그램</sub>
+
+---
+
 ## 주요 기능
 
 1. **웹페이지 분석**  
    - URL 입력 → 텍스트/이미지 추출 → 이미지 분류 API 연동
 2. **제품명 기반 식약처 인증 확인**  
-   - 제품명 입력 → CSV 기반 인증 여부 및 업소명(회사명) 확인
-3. **외국계 기업 분류**  
+   - 제품명 입력 → 식약처 인증 여부 및 업소명 확인
+3. **안심 판매자 확인**  
    - 회사명/대표자명/주소 입력 → API로 예측 결과 반환
 
 ---
@@ -25,7 +32,7 @@
 
 ```bash
 cd app
-docker-compose up --build
+docker-compose up -d
 ```
 
 - Streamlit UI: [http://localhost:8501](http://localhost:8501)
@@ -39,13 +46,13 @@ docker-compose up --build
 - 모든 의존성은 Docker 이미지 빌드시 자동 설치됨
 - 주요 패키지:  
   `streamlit`, `fastapi`, `torch`, `torchvision`, `pillow`,  
-  `selenium`, `beautifulsoup4`, `pandas`, `webdriver-manager` 등
+  `selenium`, `beautifulsoup4`, `pandas` 등
 
 ---
 
 ## 데이터/모델 파일
 
-- `foreign_company_classifier_v2.h5` : 외국계 기업 분류 모델
+- `foreign_company_classifier_v2.h5` : 기업 분류 모델
 - `best_resnet18.pt` : 이미지 분류 모델 (api/image 폴더 등 위치)
 
 ---
