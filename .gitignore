@@ -10,4 +10,3 @@ wheels/
 .venv
 .DS_Store
 .python-version
-data.csv
