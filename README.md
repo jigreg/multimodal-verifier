@@ -17,7 +17,8 @@ Cursor, Claude Desktop 등 MCP 호환 LLM에서 도구로 사용할 수 있습�
 ### 2-1. 저장소 클론
 
 ```bash
-git clone [본인 저장소 주소]
+git clone --branch mcp https://github.com/jigreg/multimodal-verifier.git
+branch명은 mcp입니다.
 cd mcp-server
 ```
 
