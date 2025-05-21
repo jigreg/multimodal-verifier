@@ -56,7 +56,7 @@ uv run main.py
 
 ## 4. Claude Desktop 연동 방법
 
-1. Claude Desktop 설치 및 최신 업데이트 ([공식 다운로드](https://www.anthropic.com/claude/desktop))
+1. Claude Desktop 설치 및 최신 업데이트 ([공식 다운로드](https://claude.ai/download))
 2. Settings → Developer → Edit Config에서 MCP 서버 등록
 
 ```json
