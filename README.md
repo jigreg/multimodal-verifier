@@ -151,6 +151,21 @@ uv run main.py
 - 로그/이미지 등은 `image/` 폴더에 저장됩니다.
 - 데이터 파일(`data.csv`)이 반드시 필요합니다.
 - 확장/개발: `main.py` 참고
+- **ChromeDriver 위치 설정**
+    - Selenium 기반 기능(이미지 다운로드 등)을 사용하려면 ChromeDriver가 설치되어 있어야 하며, 시스템에 맞는 경로를 코드에 지정해야 합니다.
+    - 기본적으로 `webdriver_manager`를 사용하지만, 직접 경로를 지정해야 할 경우 아래와 같이 확인 및 수정하세요.
+    - **macOS/Homebrew 설치 시:**
+        - 설치: `brew install chromedriver`
+        - 경로 확인: `which chromedriver` (예: `/opt/homebrew/bin/chromedriver`)
+    - **Windows:**
+        - [공식 사이트](https://sites.google.com/chromium.org/driver/)에서 다운로드 후, 경로 예: `C:\chromedriver\chromedriver.exe`
+    - `main.py` 내에서 `Service("/경로/크롬드라이버")` 부분을 본인 환경에 맞게 수정하세요.
+    - 예시:
+      ```python
+      service = Service("/opt/homebrew/bin/chromedriver")  # macOS/Homebrew
+      # 또는
+      service = Service("C:/chromedriver/chromedriver.exe")  # Windows
+      ```
 
 ---
 
