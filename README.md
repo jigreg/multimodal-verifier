@@ -5,7 +5,10 @@
 이 프로젝트는 식의약 제품 인증, 판매자(국내/중국) 분류, 이미지/웹페이지 분석 등 다양한 식의약 데이터 분석을 위한 MCP 서버입니다.  
 Cursor, Claude Desktop 등 MCP 호환 LLM에서 도구로 사용할 수 있습니다.
 
-[![데모 영상 바로가기](https://img.youtube.com/vi/영상ID/0.jpg)](https://youtu.be/영상ID)
+[![데모 영상 바로가기]](https://github.com/user-attachments/assets/6f74c8e6-2ec6-4479-8b11-bdb9a03f71a1)
+
+
+
 
 ---
 
