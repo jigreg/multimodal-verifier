@@ -6,8 +6,8 @@ WORKDIR /app
 COPY api/app.py /app/
 COPY api/requirements.txt /app/
 COPY api/best_resnet18.pt /app/
-COPY abnormal_company_rf_model.pkl /app/
-COPY abnormal_company_vectorizer.pkl /app/
+COPY api/abnormal_company_rf_model.pkl /app/
+COPY api/abnormal_company_vectorizer.pkl /app/
 
 # 라이브러리 설치
 RUN apt-get update && apt-get install -y gcc && \
