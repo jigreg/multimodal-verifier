@@ -57,8 +57,6 @@ def predict(data: PredictRequest):
     label = int(prob[1] > 0.5)  # 신고업체 여부
 
     return {
-        "input": combined_text,
-        "prediction": "신고업체" if label == 1 else "정상업체",
         "신고업체 확률": round(prob[1], 4),
         "정상업체 확률": round(prob[0], 4)
     }
