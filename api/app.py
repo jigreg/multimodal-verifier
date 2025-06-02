@@ -54,12 +54,13 @@ def predict(data: PredictRequest):
     # 예측
     vector = vectorizer.transform([combined_text])
     prob = text_model.predict_proba(vector)[0]
-    label = int(prob[1] > 0.5)
+    label = int(prob[1] > 0.5)  # 신고업체 여부
 
     return {
         "input": combined_text,
         "prediction": "신고업체" if label == 1 else "정상업체",
-        "confidence": round(prob[label], 4)
+        "신고업체 확률": round(prob[1], 4),
+        "정상업체 확률": round(prob[0], 4)
     }
 
 # ===== 이미지 분류 엔드포인트 =====
