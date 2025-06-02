@@ -134,24 +134,39 @@ if "certify_result" in st.session_state:
     else:
         st.error(st.session_state["certify_result"])
 
-# === 3. 외국계 기업 분류(판매자) ===
-st.header("3. 외국계 기업 분류(판매자)")
-company = st.text_input("회사명", key="company")
-ceo = st.text_input("대표자명", key="ceo")
-address = st.text_input("주소", key="address")
-if st.button("기업 분류 예측", key="predict"):
-    if not (company or ceo or address):
-        st.warning("하나 이상의 정보를 입력하세요.")
+# === 3. 정상 기업 및 원료 분류(판매자) ===
+st.title("🇰🇷 정상 기업 및 원료 분류")
+st.write("회사명과/또는 사용 원료명을 입력하면, 신고업체 여부를 예측합니다.")
+
+# === 입력 항목 ===
+company_name = st.text_input("회사명", placeholder="예: 코스맥스바이오")
+
+ingredient_input = st.text_area(
+    "원료명 (쉼표로 구분)", 
+    placeholder="예: 은행잎추출물, 프락토올리고당, 밀크씨슬추출물"
+)
+
+# === 처리 ===
+if st.button("예측 실행"):
+    # 입력 정리
+    ingredients = [
+        i.strip() for i in ingredient_input.split(",") if i.strip()
+    ] if ingredient_input else None
+
+    if not company_name and not ingredients:
+        st.warning("회사명 또는 원료명을 하나 이상 입력해주세요.")
     else:
+        payload = {
+            "company_name": company_name,
+            "ingredients": ingredients
+        }
+
         try:
-            response = requests.post(
-                "http://api:8000/predict",
-                json={"company": company, "ceo": ceo, "address": address},
-                timeout=10
-            )
+            response = requests.post("http://api:8000/predict", json=payload, timeout=10)
             if response.ok:
                 result = response.json()
-                st.write(f"예측 결과: {result.get('label')} (확률: {result.get('probability')})")
+                st.success(f"🧠 예측 결과: {result['prediction']} (확률: {result['confidence']})")
+                st.code(f"입력 문장: {result['input']}", language="text")
             else:
                 st.error(f"API 요청 실패: {response.status_code} {response.text}")
         except Exception as e:
