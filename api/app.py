@@ -1,6 +1,5 @@
 from fastapi import FastAPI, UploadFile, File
 from pydantic import BaseModel
-from sentence_transformers import SentenceTransformer
 from PIL import Image
 import torch
 from torchvision import transforms, models
